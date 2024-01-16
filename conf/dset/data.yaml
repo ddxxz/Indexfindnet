@@ -1,0 +1,4 @@
+# @package dset
+tr_csv: data/train.csv
+cv_csv: data/val.csv
+tt_csv: data/test.csv
