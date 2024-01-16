@@ -8,11 +8,11 @@ Photosynthetic capacity Estimation Model Based on Global Attention and Spectral 
 
 Building upon the one-dimensional reflectance input, a deep learning model called OnedCNN serves as the baseline model. It primarily consists of spectral dimension pooling, such as smoothing to prevent data redundancy, followed by two layers of dilated convolutions for expanded receptive field. Based on this baseline model, an improved version named IndiceCNN is constructed. It involves dividing average pooling into three rounds for more comprehensive feature extraction. Additionally, the first convolution layer is replaced with gated convolutions for feature selection, while the second convolution layer is substituted with three layers of spectral index calculation.
 
-![图片2](https://github.com/ddxxz/hyperspec_one_alltry/blob/main/pic/图片2.png)
+![图片2](https://github.com/ddxxz/Indexfindnet/blob/main/pic/OnedCNN-IndiceCNN.png)
 
 The main idea behind Indexfindnet is to use deep learning methods to identify the spectral bands and vegetation index features that are sensitive to photosynthetic capacity. To achieve this goal, we embed the commonly used computation formulas for spectral indices into the model, referred to as M5. To identify the sensitive bands corresponding to the indices, we combine the concept of attention and construct the NonlocalBandAttention module, denoted as M4. This module helps locate the corresponding sensitive bands. The input for M4 is the reflectance features that have undergone feature extraction and selection through modules M2 and M3.
 
-![图片4](https://github.com/ddxxz/hyperspec_one_alltry/blob/main/pic/图片4.png)
+![图片4](https://github.com/ddxxz/Indexfindnet/blob/main/pic/Indexfindnet.png)
 
 The obtained index features are utilized for the estimation of photosynthetic parameters Vcmax and Jmax.
 
