@@ -48,8 +48,6 @@ class BasicDataset(Dataset):
             # self.embed_path = data['ref_feature_path']
             # data = data.drop('ref_feature_path',axis=1)
 
-        #self.indice= data.loc[:, 'NDVI':'ARI2']
-        self.indice = data.loc[:, 'NDVI':'SR2']
         self.input_x = data.loc[:,'397.32':'1003.58']
         input_x = self.input_x.values
 
@@ -69,14 +67,7 @@ class BasicDataset(Dataset):
         self.input_x_std = np.std(input_x)
         self.input_x_norm = input_x
 
-        indice = self.indice.values
-        self.indice_mean = np.mean(indice)
-        self.indice_std = np.std(indice)
-        self.indice_norm = indice
-        #self.input_x_norm = (input_x-input_x_mean)/input_x_std
-        self.indice_max = np.max(np.array(self.indice)[:, args.indice_num])
-        self.indice_min = np.min(np.array(self.indice)[:, args.indice_num])
-
+        
         self.label = data.loc[:,[self.label_name]]#,,,'Vcmax','Jmax',
         #label = self.label.values
         self.label_mean = self.label.mean(axis=0).values.astype(np.float32)#np.mean(label,axis=0,keepdims=True)
@@ -118,10 +109,8 @@ class BasicDataset(Dataset):
     def __getitem__(self, item):
         input_x = self.input_x_norm[item]
 
-        indice= self.indice_norm[item]
         label = self.label_norm.iloc[item]
         input_x = input_x[None, :]   #用一维反射率只用这一行
-        indice = indice[None, :]
         #print(input_x.shape)
 
 
@@ -169,16 +158,16 @@ class BasicDataset(Dataset):
 
         if self.embedding:
             dataset = {'Spectral':torch.from_numpy(np.array(input_x,dtype='float32')),
-                       'Indice': torch.from_numpy(np.array(indice, dtype='float32')),
-                       'Embedding':torch.from_numpy(np.array(embedding,dtype='float32')),
-                       'himg': torch.from_numpy(np.array(rgb,dtype='float32')),
+                       #'Indice': torch.from_numpy(np.array(indice, dtype='float32')),
+                       #'Embedding':torch.from_numpy(np.array(embedding,dtype='float32')),
+                       #'himg': torch.from_numpy(np.array(rgb,dtype='float32')),
                        #'RE_RGB':torch.from_numpy(np.array(RE_rgb)),
                        'Label':torch.from_numpy(np.array(label,dtype='float32'))
             }
         else:
             dataset = {'Spectral': torch.from_numpy(np.array(input_x, dtype='float32')),
-                       'Indice':torch.from_numpy(np.array(indice, dtype='float32')),
-                       'himg': torch.from_numpy(np.array(rgb, dtype='float32')),
+                       #'Indice':torch.from_numpy(np.array(indice, dtype='float32')),
+                       #'himg': torch.from_numpy(np.array(rgb, dtype='float32')),
                        #'RE_RGB': torch.from_numpy(np.array(RE_rgb)),
                        'Label': torch.from_numpy(np.array(label, dtype='float32'))
                        }

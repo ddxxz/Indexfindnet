@@ -31,7 +31,7 @@ task: hyperimg  # rgb | hyper | both | VAE
 data_clean: 1
 embedding: 0
 optim: Adam
-output_root: /mnt/e/deep_learning/outputs/
+output_root: outputs/
 lr_scheduler: CyclicLR
 channel_num: 4
 prob: 0.2

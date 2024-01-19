@@ -24,25 +24,25 @@ python main.py name=${crop}_IndexfindNet_${label_name} dset=${dset} label_name=$
 label_name=Vcmax
 for compress_num in 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.5 2; do
   echo $compress_num
-  python main.py name=${crop}_IndexfindNet_compress${compress_num}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=Indexfindnet compress_num=$compress_num
+  python main.py name=${crop}_IndexfindNet_compress${compress_num}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=IndexfindNet compress_num=$compress_num
 done
 
 label_name=Jmax
 for compress_num in 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.5 2; do
   echo $compress_num
-  python main.py name=${crop}_IndexfindNet_compress${compress_num}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=Indexfindnet compress_num=$compress_num
+  python main.py name=${crop}_IndexfindNet_compress${compress_num}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=IndexfindNet compress_num=$compress_num
 done
 
 label_name=Vcmax
 for resample in  60 120 180 204 240 300 400 500 600; do
   echo $resample
-  python main.py name=${crop}_IndexfindNet_resample${resample}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=Indexfindnet resample=$resample
+  python main.py name=${crop}_IndexfindNet_resample${resample}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=IndexfindNet resample=$resample
 done
 
 label_name=Jmax
 for resample in 60 120 180 204 240 300 400 500 600; do
   echo $resample
-  python main.py name=${crop}_IndexfindNet_resample${resample}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=Indexfindnet resample=$resample
+  python main.py name=${crop}_IndexfindNet_resample${resample}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=IndexfindNet resample=$resample
 done
 
 
@@ -69,24 +69,24 @@ python main.py name=${crop}_IndexfindNet_${label_name} dset=${dset} label_name=$
 label_name=Vcmax
 for compress_num in 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.5 2; do
   echo $compress_num
-  python main.py name=${crop}_IndexfindNet_compress${compress_num}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=Indexfindnet compress_num=$compress_num
+  python main.py name=${crop}_IndexfindNet_compress${compress_num}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=IndexfindNet compress_num=$compress_num
 done
 
 label_name=Jmax
 for compress_num in 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.5 2; do
   echo $compress_num
-  python main.py name=${crop}_IndexfindNet_compress${compress_num}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=Indexfindnet compress_num=$compress_num
+  python main.py name=${crop}_IndexfindNet_compress${compress_num}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=IndexfindNet compress_num=$compress_num
 done
 
 label_name=Vcmax
 for resample in  60 120 180 204 240 300 400 500 600; do
   echo $resample
-  python main.py name=${crop}_IndexfindNet_resample${resample}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=Indexfindnet resample=$resample
+  python main.py name=${crop}_IndexfindNet_resample${resample}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=IndexfindNet resample=$resample
 done
 
 label_name=Jmax
 for resample in 60 120 180 204 240 300 400 500 600; do
   echo $resample
-  python main.py name=${crop}_IndexfindNet_resample${resample}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=Indexfindnet resample=$resample
+  python main.py name=${crop}_IndexfindNet_resample${resample}_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=IndexfindNet resample=$resample
 done
 

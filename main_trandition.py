@@ -72,10 +72,10 @@ def evalution(args, model, loader):
         with torch.no_grad():
             # print(data)
             input = data['Spectral'].to(device=device, dtype=torch.float)
-            indice = data['Indice'].to(device=device, dtype=torch.float)
+            #indice = data['Indice'].to(device=device, dtype=torch.float)
             if args.embedding:
                 embedding = data['Embedding'].to(device=device, dtype=torch.float)
-            img = data['himg'].to(device=device, dtype=torch.float).cuda()
+            #img = data['himg'].to(device=device, dtype=torch.float).cuda()
             # output = model.forward(input,indice)#, ,imgimg
             if args.task == 'hyper':
                 output = model(input)  # ,input,indice
@@ -142,7 +142,7 @@ def _main(args,_run=None):
     MODELS = {
         'OnedCNN': OnedCNN,
         'IndiceCNN': IndiceCNN,
-        'IndexfindNe': IndexfindNet
+        'IndexfindNet': IndexfindNet
               }
     Vcmax_max = train_data.Vcmax_max
     Vcmax_min = train_data.Vcmax_min
@@ -367,10 +367,10 @@ def _main(args,_run=None):
         for data in train_loader:
             # print(data)
             input = data['Spectral'].to(device=device, dtype=torch.float32)
-            indice = data['Indice'].to(device=device, dtype=torch.float32)
+            #indice = data['Indice'].to(device=device, dtype=torch.float32)
             if args.embedding:
                 embedding = data['Embedding'].to(device=device, dtype=torch.float32)
-            img = data['himg'].to(device=device, dtype=torch.float32).cuda()
+            #img = data['himg'].to(device=device, dtype=torch.float32).cuda()
             # print(output)
             label = data['Label'].to(device=device, dtype=torch.float32)
 

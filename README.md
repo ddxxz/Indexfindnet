@@ -35,15 +35,9 @@ You can find the configuration files containing all relevant parameters for trai
 
 You can pass options through the command line, for example, python train.py lr=1e-4. Refer to [conf/config.yaml] for a reference of possible options. You can also directly edit the config.yaml file, but it is not recommended as experiments are automatically named, as mentioned below.
 
-#### Data spliting
-
-```
-python data_proceed/get_testdata.py 0 data/all_data.csv
-python data_proceed/split-train-val-data.py 0
-```
 
 #### Training
 
 ```
-python main.py name=${crop}_IndexfindNet_${label_name} dset=${dset} label_name=${label_name} task=hyper data_clean=0 embedding=0 model=IndexfindNet
+bash scripts/train.sh
 ```
