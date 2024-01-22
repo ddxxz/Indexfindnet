@@ -41,3 +41,13 @@ You can pass options through the command line, for example, python train.py lr=1
 ```
 bash scripts/train.sh
 ```
+
+#### Sensitive bands and Index
+
+When you have trained a model successfully, you can visualize the bands and indices.
+
+```
+python utils/weight_indexfind.py
+python utils/plot_band_find_distribution.py
+```
+
