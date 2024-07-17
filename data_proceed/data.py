@@ -55,8 +55,13 @@ class BasicDataset(Dataset):
         if self.gl!=0:
             input_x = [Grunwald_Letnikov(self.gl,x) for x in input_x]
         input_x = np.array(input_x)
+        
         if self.resample!=204:
-            input_x = signal.resample(input_x,num=self.resample,axis=-1)#重采样光谱
+            x_old = np.linspace(0, 1, len(input_x)) 
+            x_new = np.linspace(0, 1, self.resample)  # 新数据的等距x坐标
+            interpolator = interp1d(x_old, input_x, kind='cubic')  # 创建插值函数
+            input_x = interpolator(x_new)
+            #input_x = signal.resample(input_x,num=self.resample,axis=-1)#重采样光谱
         if self.compress_num!=1:
             input_x = np.power(input_x,self.compress_num)#np.sqrt(input_x)#对光谱压缩
         #input_x = np.sqrt(input_x)
